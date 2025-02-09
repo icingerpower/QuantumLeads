@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1746</width>
+    <height>990</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Quantum Leads</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QListWidget" name="listWidgetMenu">
+       <property name="maximumSize">
+        <size>
+         <width>140</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <item>
+        <property name="text">
+         <string>Leads</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Emails</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Settings</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QStackedWidget" name="stackedWidget">
+       <property name="currentIndex">
+        <number>2</number>
+       </property>
+       <widget class="PaneLeads" name="pageLeads"/>
+       <widget class="PaneEmails" name="pageEmails"/>
+       <widget class="PaneSettings" name="pageSettings"/>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1746</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PaneLeads</class>
+   <extends>QWidget</extends>
+   <header>gui/PaneLeads.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PaneEmails</class>
+   <extends>QWidget</extends>
+   <header>gui/PaneEmails.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PaneSettings</class>
+   <extends>QWidget</extends>
+   <header>gui/PaneSettings.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>listWidgetMenu</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>stackedWidget</receiver>
+   <slot>setCurrentIndex(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>159</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>567</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

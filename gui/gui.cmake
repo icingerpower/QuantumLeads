@@ -1,0 +1,17 @@
+set(GUI_FILES
+        ${CMAKE_CURRENT_LIST_DIR}/MainWindow.h
+        ${CMAKE_CURRENT_LIST_DIR}/MainWindow.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/MainWindow.ui
+        ${CMAKE_CURRENT_LIST_DIR}/PaneLeads.h
+        ${CMAKE_CURRENT_LIST_DIR}/PaneLeads.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/PaneLeads.ui
+        ${CMAKE_CURRENT_LIST_DIR}/PaneEmails.h
+        ${CMAKE_CURRENT_LIST_DIR}/PaneEmails.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/PaneEmails.ui
+        ${CMAKE_CURRENT_LIST_DIR}/PaneSettings.h
+        ${CMAKE_CURRENT_LIST_DIR}/PaneSettings.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/PaneSettings.ui
+        ${CMAKE_CURRENT_LIST_DIR}/DialogFileColumns.h
+        ${CMAKE_CURRENT_LIST_DIR}/DialogFileColumns.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/DialogFileColumns.ui
+    )
