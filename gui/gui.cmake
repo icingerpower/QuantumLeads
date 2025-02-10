@@ -8,10 +8,16 @@ set(GUI_FILES
         ${CMAKE_CURRENT_LIST_DIR}/PaneEmails.h
         ${CMAKE_CURRENT_LIST_DIR}/PaneEmails.cpp
         ${CMAKE_CURRENT_LIST_DIR}/PaneEmails.ui
+        ${CMAKE_CURRENT_LIST_DIR}/PaneEmailsCommon.h
+        ${CMAKE_CURRENT_LIST_DIR}/PaneEmailsCommon.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/PaneEmailsCommon.ui
         ${CMAKE_CURRENT_LIST_DIR}/PaneSettings.h
         ${CMAKE_CURRENT_LIST_DIR}/PaneSettings.cpp
         ${CMAKE_CURRENT_LIST_DIR}/PaneSettings.ui
         ${CMAKE_CURRENT_LIST_DIR}/DialogFileColumns.h
         ${CMAKE_CURRENT_LIST_DIR}/DialogFileColumns.cpp
         ${CMAKE_CURRENT_LIST_DIR}/DialogFileColumns.ui
+        ${CMAKE_CURRENT_LIST_DIR}/DialogAddEmail.h
+        ${CMAKE_CURRENT_LIST_DIR}/DialogAddEmail.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/DialogAddEmail.ui
     )

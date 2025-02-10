@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     qRegisterMetaType<QList<QList<QVariant>>>();
     qRegisterMetaType<QList<QStringList>>();
+    qRegisterMetaType<QList<QDateTime>>();
     qRegisterMetaType<QSet<QString>>();
 
     WorkingDirectoryManager::instance()->installDarkOrangePalette();

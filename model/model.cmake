@@ -12,4 +12,12 @@ set(MODEL_FILES
         ${CMAKE_CURRENT_LIST_DIR}/ColumnTreeItem.cpp
         ${CMAKE_CURRENT_LIST_DIR}/NewColumnsList.h
         ${CMAKE_CURRENT_LIST_DIR}/NewColumnsList.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/PageTreeItem.h
+        ${CMAKE_CURRENT_LIST_DIR}/PageTreeItem.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/PageTree.h
+        ${CMAKE_CURRENT_LIST_DIR}/PageTree.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/EmailTree.h
+        ${CMAKE_CURRENT_LIST_DIR}/EmailTree.cpp
+        ${CMAKE_CURRENT_LIST_DIR}/EmailTreeItem.h
+        ${CMAKE_CURRENT_LIST_DIR}/EmailTreeItem.cpp
     )

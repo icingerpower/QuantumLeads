@@ -18,7 +18,7 @@ ColumnTree::ColumnTree(QObject *parent)
     {
         new ColumnTreeItem{column.name(), column.id(), m_rootItem};
     }
-    loadFromSettings();
+    _loadFromSettings();
 }
 
 void ColumnTree::_clear()
@@ -36,9 +36,9 @@ void ColumnTree::_clear()
     }
 }
 
-void ColumnTree::saveInSettings() const
+void ColumnTree::_saveInSettings() const
 {
-    auto settings = WorkingDirectoryManager::instance()->settingsLocalIfClient();
+    auto settings = WorkingDirectoryManager::instance()->settings();
     if (rowCount() > 0)
     {
         QList<QList<QVariant>> listOfVariantList;
@@ -51,9 +51,9 @@ void ColumnTree::saveInSettings() const
     }
 }
 
-void ColumnTree::loadFromSettings() // TODO readjust based on new columns
+void ColumnTree::_loadFromSettings() // TODO readjust based on new columns
 {
-    auto settings = WorkingDirectoryManager::instance()->settingsLocalIfClient();
+    auto settings = WorkingDirectoryManager::instance()->settings();
     auto listOfVariantList
             = settings->value(m_settingsKey).value<QList<QList<QVariant>>>();
     QHash<QString, ColumnTreeItem *> itemById;
@@ -62,10 +62,8 @@ void ColumnTree::loadFromSettings() // TODO readjust based on new columns
         itemById[child->columnId()] = child;
     }
     QHash<QString, ColumnTreeItem *> itemLoadedById;
-    //_clear();
     QList<ColumnTreeItem *> currentItemsByLevel;
     currentItemsByLevel << new ColumnTreeItem;
-    //currentItemsByLevel << m_rootItem;
     for (auto &variantList : listOfVariantList)
     {
         int level = variantList.takeFirst().toInt();
@@ -96,7 +94,6 @@ void ColumnTree::loadFromSettings() // TODO readjust based on new columns
         }
         currentItemsByLevel[nextLevel] = child;
     }
-    //*
     for (auto &child : m_rootItem->children())
     {
         const QString &columnId = child->columnId();
@@ -112,7 +109,6 @@ void ColumnTree::loadFromSettings() // TODO readjust based on new columns
         }
     }
     delete currentItemsByLevel[0];
-    //*/
 }
 
 ColumnTree *ColumnTree::instance()
@@ -251,7 +247,7 @@ void ColumnTree::addSubItem(
             }
             beginInsertRows(parentIndex, parent->rowCount(), parent->rowCount());
             new ColumnTreeItem{name, QString{}, parent};
-            saveInSettings();
+            _saveInSettings();
             endInsertRows();
         }
         else
@@ -278,7 +274,7 @@ void ColumnTree::upItem(const QModelIndex &itemIndex)
     parent->up(row);
     auto index1 = index(row-1, 0, parentIndex);
     auto index2 = index(row, columnCount()-1, parentIndex);
-    saveInSettings();
+    _saveInSettings();
     emit dataChanged(index1, index2);
 }
 
@@ -299,7 +295,7 @@ void ColumnTree::downItem(const QModelIndex &itemIndex)
     parent->down(row);
     auto index1 = index(row, 0, parentIndex);
     auto index2 = index(row+1, columnCount()-1, parentIndex);
-    saveInSettings();
+    _saveInSettings();
     emit dataChanged(index1, index2);
 }
 
@@ -316,7 +312,7 @@ void ColumnTree::removeSubItem(const QModelIndex &itemIndex)
                     parentIndex.internalPointer());
         beginRemoveRows(parentIndex, child->row(), child->row());
         parent->remove(child->row());
-        saveInSettings();
+        _saveInSettings();
         endRemoveRows();
     }
     else
@@ -428,7 +424,7 @@ bool ColumnTree::setData(const QModelIndex &index, const QVariant &value, int ro
                     index.internalPointer());
         item->setData(index.column(), value);
         emit dataChanged(index, index, {role});
-        saveInSettings();
+        _saveInSettings();
         return true;
     }
     return false;

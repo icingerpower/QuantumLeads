@@ -34,7 +34,12 @@
        </item>
        <item>
         <property name="text">
-         <string>Emails</string>
+         <string>Common Emails</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Customized Emails</string>
         </property>
        </item>
        <item>
@@ -45,10 +50,11 @@
       </widget>
       <widget class="QStackedWidget" name="stackedWidget">
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <widget class="PaneLeads" name="pageLeads"/>
-       <widget class="PaneEmails" name="pageEmails"/>
+       <widget class="PaneEmailsCommon" name="pageEmailsCommon"/>
+       <widget class="PaneEmails" name="pageEmailsCustom"/>
        <widget class="PaneSettings" name="pageSettings"/>
       </widget>
      </widget>
@@ -84,6 +90,12 @@
    <class>PaneSettings</class>
    <extends>QWidget</extends>
    <header>gui/PaneSettings.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PaneEmailsCommon</class>
+   <extends>QWidget</extends>
+   <header>gui/PaneEmailsCommon.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

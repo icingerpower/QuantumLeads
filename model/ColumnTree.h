@@ -55,8 +55,8 @@ private:
     explicit ColumnTree(QObject *parent = nullptr);
     ColumnTreeItem *m_rootItem;
     void _clear();
-    void saveInSettings() const;
-    void loadFromSettings();
+    void _saveInSettings() const;
+    void _loadFromSettings();
     QString m_settingsKey;
 };
 
